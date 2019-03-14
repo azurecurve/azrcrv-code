@@ -1,0 +1,32 @@
+/* code
+----------------------------------------------- */
+
+span.azrcrv-c-code {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 13px;
+}
+
+span.azrcrv-c-sqlblue{ color: #0000fF; }
+span.azrcrv-c-sqlgray{ color: #848284; }
+span.azrcrv-c-sqlgrey{ color: #848284; }
+span.azrcrv-c-sqlpink{ color: #FF00FF; }
+span.azrcrv-c-sqlred{ color: #FF0000; }
+span.azrcrv-c-sqlgreen{ color: #008200; }
+span.azrcrv-c-highlight{ background: #B6FF00; }
+
+span.azrcrv-c-cssblue{ color: #0080FF; }
+span.azrcrv-c-csspurple{ color: #AD80C0; }
+span.azrcrv-c-cssred{ color: #FF6600; }
+span.azrcrv-c-csssoftblue{ color: #80ADEA; }
+
+span.azrcrv-c-phpred{ color: #FF0033; }
+span.azrcrv-c-phpgrey{ color: #808080; }
+span.azrcrv-c-phpgray{ color: #808080; }
+span.azrcrv-c-phpblue{ color: #0039FA; }
+span.azrcrv-c-phppurple{ color: #000080; }
+span.azrcrv-c-phpgreen{ color: #5D803A; }
+
+span.azrcrv-c-gpmenu{
+	font-size: .85em;
+	font-weight: bold;
+}
