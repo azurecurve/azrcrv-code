@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Code
  * Description: Set of shortcodes which can be used for syntax highlighting of code.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/code
@@ -17,13 +17,13 @@
  * ------------------------------------------------------------------------------
  */
 
-// include plugin menu
-require_once(dirname( __FILE__).'/pluginmenu/menu.php');
-
 // Prevent direct access.
 if (!defined('ABSPATH')){
 	die();
 }
+
+// include plugin menu
+require_once(dirname( __FILE__).'/pluginmenu/menu.php');
 
 /**
  * Setup registration activation hook, actions, filters and shortcodes.
@@ -94,7 +94,7 @@ add_shortcode('highlight', 'azrcrv_c_highlight');
 add_shortcode('HIGHLIGHT', 'azrcrv_c_highlight');
 add_shortcode('hl', 'azrcrv_c_highlight');
 add_shortcode('HL', 'azrcrv_c_highlight');
-add_shortcode('gpmunu', 'azrcrv_c_gpmenu');
+add_shortcode('gpmenu', 'azrcrv_c_gpmenu');
 add_shortcode('GPMENU', 'azrcrv_c_gpmenu');
 
 /**
