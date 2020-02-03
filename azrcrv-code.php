@@ -43,7 +43,7 @@ add_action('admin_menu', 'azrcrv_c_create_admin_menu');
 add_action('admin_post_azrcrv_c_save_options', 'azrcrv_c_save_options');
 add_action('wp_enqueue_scripts', 'azrcrv_c_load_css');
 //add_action('the_posts', 'azrcrv_c_check_for_shortcode');
-add_action('plugins_loaded', 'azrcrv_cob_load_languages');
+add_action('plugins_loaded', 'azrcrv_c_load_languages');
 
 // add filters
 add_filter('plugin_action_links', 'azrcrv_c_add_plugin_action_link', 10, 2);
@@ -108,9 +108,9 @@ add_shortcode('GPMENU', 'azrcrv_c_gpmenu');
  * @since 1.0.0
  *
  */
-function azrcrv_cob_load_languages() {
+function azrcrv_c_load_languages() {
     $plugin_rel_path = basename(dirname(__FILE__)).'/languages';
-    load_plugin_textdomain('azrcrv-cob', false, $plugin_rel_path);
+    load_plugin_textdomain('code', false, $plugin_rel_path);
 }
 
 /**
