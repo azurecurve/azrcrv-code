@@ -60,25 +60,25 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 
 # Changelog
 
-### [Version 1.1.2](https://github.com/azurecurve/azrcrv-code/tree/v1.1.2)
+### [Version 1.1.2](https://github.com/azurecurve/azrcrv-code/releases/tag/v1.1.2)
  * Fix bug with version number.
 
-### [Version 1.1.1](https://github.com/azurecurve/azrcrv-code/tree/v1.1.1)
+### [Version 1.1.1](https://github.com/azurecurve/azrcrv-code/releases/tag/v1.1.1)
  * Fix bug with incorrect language load function name and text-domain.
 
-### [Version 1.1.0](https://github.com/azurecurve/azrcrv-code/tree/v1.1.0)
+### [Version 1.1.0](https://github.com/azurecurve/azrcrv-code/releases/tag/v1.1.0)
  * Add integration with Update Manager for automatic updates.
  * Fix bug with closing of tags in formatcode shortcode.
  * Fix issue with display of azurecurve menu.
  * Change settings page heading.
  * Add load_plugin_textdomain to handle translations.
 
-### [Version 1.0.1](https://github.com/azurecurve/azrcrv-code/tree/v1.0.1)
+### [Version 1.0.1](https://github.com/azurecurve/azrcrv-code/releases/tag/v1.0.1)
  * Update azurecurve menu for easier maintenance.
  * Move require of azurecurve menu below security check.
  * Localization fixes.
 
-### [Version 1.0.0](https://github.com/azurecurve/azrcrv-code/tree/v1.0.0)
+### [Version 1.0.0](https://github.com/azurecurve/azrcrv-code/releases/tag/v1.0.0)
  * Initial release.
 
 == Other Notes ==
