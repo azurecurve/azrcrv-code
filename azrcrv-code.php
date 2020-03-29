@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Code
  * Description: Set of shortcodes which can be used for syntax highlighting of code.
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/code
@@ -241,7 +241,7 @@ function azrcrv_c_add_plugin_action_link($links, $file){
 	}
 
 	if ($file == $this_plugin){
-		$settings_link = '<a href="'.get_bloginfo('wpurl').'/wp-admin/admin.php?page=azrcrv-c">'.esc_html__('Settings' ,'code').'</a>';
+		$settings_link = '<a href="'.get_bloginfo('wpurl').'/wp-admin/admin.php?page=azrcrv-c"><img src="'.plugins_url('/pluginmenu/images/Favicon-16x16.png', __FILE__).'" style="padding-top: 2px; margin-right: -5px; height: 16px; width: 16px;" alt="azurecurve" />'.esc_html__('Settings' ,'code').'</a>';
 		array_unshift($links, $settings_link);
 	}
 
