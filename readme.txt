@@ -1,12 +1,12 @@
 === Code ===
 
 Description:	Set of shortcodes which can be used for manual syntax highlighting of code.
-Version:		1.1.3
+Version:		1.1.4
 Tags:			code,syntax,highlighting
 Author:			azurecurve
 Author URI:		https://development.azurecurve.co.uk/
 Plugin URI:		https://development.azurecurve.co.uk/classicpress-plugins/code/
-Download link:	https://github.com/azurecurve/azrcrv-code/releases/download/v1.1.3/azrcrv-code.zip
+Download link:	https://github.com/azurecurve/azrcrv-code/releases/download/v1.1.4/azrcrv-code.zip
 Donate link:	https://development.azurecurve.co.uk/support-development/
 Requires PHP:	5.6
 Requires:		1.0.0
@@ -60,6 +60,10 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 
 # Changelog
 
+### [Version 1.1.4](https://github.com/azurecurve/azrcrv-code/releases/tag/v1.1.4)
+ * Rewrite default option creation function to resolve several bugs.
+ * Upgrade azurecurve plugin to store available plugins in options.
+ 
 ### [Version 1.1.3](https://github.com/azurecurve/azrcrv-code/releases/tag/v1.1.3)
  * Update Update Manager class to v2.0.0.
  * Update action link.
