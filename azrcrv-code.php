@@ -24,7 +24,7 @@ if (!defined('ABSPATH')){
 
 // include plugin menu
 require_once(dirname( __FILE__).'/pluginmenu/menu.php');
-register_activation_hook(__FILE__, 'azrcrv_create_plugin_menu_c');
+add_action('admin_init', 'azrcrv_create_plugin_menu_c');
 
 // include update client
 require_once(dirname(__FILE__).'/libraries/updateclient/UpdateClient.class.php');
@@ -36,9 +36,7 @@ require_once(dirname(__FILE__).'/libraries/updateclient/UpdateClient.class.php')
  *
  */
 // add actions
-register_activation_hook(__FILE__, 'azrcrv_c_set_default_options');
-
-// add actions
+add_action('admin_init', 'azrcrv_c_set_default_options');
 add_action('admin_menu', 'azrcrv_c_create_admin_menu');
 add_action('admin_post_azrcrv_c_save_options', 'azrcrv_c_save_options');
 add_action('wp_enqueue_scripts', 'azrcrv_c_load_css');
@@ -173,7 +171,8 @@ function azrcrv_c_set_default_options($networkwide){
 	$old_option_name = 'azc_c_options';
 	
 	$new_options = array(
-						'copyright' => '#007FFF',
+						'copyright' => '',
+						'updated' => strtotime('2020-04-04'),
 			);
 	
 	// set defaults for multi-site
@@ -214,27 +213,26 @@ function azrcrv_c_set_default_options($networkwide){
 function azrcrv_c_update_options($option_name, $new_options, $is_network_site, $old_option_name){
 	if ($is_network_site == true){
 		if (get_site_option($option_name) === false){
-			if (get_site_option($old_option_name) === false){
-				add_site_option($option_name, $new_options);
-			}else{
-				add_site_option($option_name, azrcrv_c_update_default_options($new_options, get_site_option($old_option_name)));
-			}
+			add_site_option($option_name, $new_options);
 		}else{
-			update_site_option($option_name, azrcrv_c_update_default_options($new_options, get_site_option($option_name)));
+			$options = get_site_option($option_name);
+			if (!isset($options['updated']) OR $options['updated'] < $new_options['updated'] ){
+				$options['updated'] = $new_options['updated'];
+				update_site_option($option_name, azrcrv_c_update_default_options($options, $new_options));
+			}
 		}
 	}else{
 		if (get_option($option_name) === false){
-			if (get_option($old_option_name) === false){
-				add_option($option_name, $new_options);
-			}else{
-				add_option($option_name, azrcrv_c_update_default_options($new_options, get_option($old_option_name)));
-			}
+			add_option($option_name, $new_options);
 		}else{
-			update_option($option_name, azrcrv_c_update_default_options($new_options, get_option($option_name)));
+			$options = get_option($option_name);
+			if (!isset($options['updated']) OR $options['updated'] < $new_options['updated'] ){
+				$options['updated'] = $new_options['updated'];
+				update_option($option_name, azrcrv_c_update_default_options($options, $new_options));
+			}
 		}
 	}
 }
-
 
 /**
  * Add default options to existing options.
@@ -247,10 +245,10 @@ function azrcrv_c_update_default_options( &$default_options, $current_options ) 
     $current_options = (array) $current_options;
     $updated_options = $current_options;
     foreach ($default_options as $key => &$value) {
-        if (is_array( $value) && isset( $updated_options[$key ])){
+        if (is_array( $value) && isset( $updated_options[$key])){
             $updated_options[$key] = azrcrv_c_update_default_options($value, $updated_options[$key]);
         } else {
-            $updated_options[$key] = $value;
+			$updated_options[$key] = $value;
         }
     }
     return $updated_options;
