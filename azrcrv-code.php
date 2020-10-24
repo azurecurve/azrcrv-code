@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Code
  * Description: Set of shortcodes which can be used for syntax highlighting of code.
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/code
@@ -46,7 +46,6 @@ add_action('plugins_loaded', 'azrcrv_c_load_languages');
 // add filters
 add_filter('plugin_action_links', 'azrcrv_c_add_plugin_action_link', 10, 2);
 add_filter('the_content', 'azrcrv_fix_shortcodes');
-remove_filter('the_content', 'wpautop');
 remove_filter('the_content', 'wptexturize');
 add_filter('the_content', 'azrcrv_c_preformat_postcode_shortcode', 99);
 
@@ -389,7 +388,7 @@ function azrcrv_c_preformat_postcode_shortcode($content){
                if (preg_match($pattern_contents, $piece, $matches)){
                        $new_content .= $matches[1];
                } else {
-                       $new_content .= wptexturize(wpautop($piece));
+                       $new_content .= wptexturize($piece);
                }
        }
 
