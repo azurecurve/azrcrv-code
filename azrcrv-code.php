@@ -3,10 +3,10 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Code
  * Description: Set of shortcodes which can be used for syntax highlighting of code.
- * Version: 1.1.6
+ * Version: 1.2.0
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
- * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/code
+ * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/code/
  * Text Domain: code
  * Domain Path: /languages
  * ------------------------------------------------------------------------------
@@ -48,6 +48,8 @@ add_filter('plugin_action_links', 'azrcrv_c_add_plugin_action_link', 10, 2);
 add_filter('the_content', 'azrcrv_fix_shortcodes');
 remove_filter('the_content', 'wptexturize');
 add_filter('the_content', 'azrcrv_c_preformat_postcode_shortcode', 99);
+add_filter('codepotent_update_manager_image_path', 'azrcrv_c_custom_image_path');
+add_filter('codepotent_update_manager_image_url', 'azrcrv_c_custom_image_url');
 
 // add shortcodes
 add_shortcode('formatcode', 'azrcrv_c_format');
@@ -156,6 +158,32 @@ function azrcrv_c_check_for_shortcode($posts){
  */
 function azrcrv_c_load_css(){
 	wp_enqueue_style('azrcrv-c', plugins_url('assets/css/style.css', __FILE__), '', '1.0.0');
+}
+
+/**
+ * Custom plugin image path.
+ *
+ * @since 1.2.0
+ *
+ */
+function azrcrv_c_custom_image_path($path){
+    if (strpos($path, 'azrcrv-code') !== false){
+        $path = plugin_dir_path(__FILE__).'assets/pluginimages';
+    }
+    return $path;
+}
+
+/**
+ * Custom plugin image url.
+ *
+ * @since 1.2.0
+ *
+ */
+function azrcrv_c_custom_image_url($url){
+    if (strpos($url, 'azrcrv-code') !== false){
+        $url = plugin_dir_url(__FILE__).'assets/pluginimages';
+    }
+    return $url;
 }
 
 /**
